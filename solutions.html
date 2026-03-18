@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | Vyntrix Intelligence</title>
+    <meta name="description"
+        content="Simulate a vulnerability scan and see how Vyntrix NeuroGuard effortlessly deflects threats with cutting edge AI.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="page-padding">
+    <main>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="glass-nav scrolled">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="v-mark">V</span>YNTRIX <span class="accent">INTELLIGENCE</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="solutions.html" class="active-link">Solutions</a></li>
+                <li><a href="lab.html">R&D Lab</a></li>
+                <li><a href="contact.html" class="btn-glow">Access Engine</a></li>
+            </ul>
+        </nav>
+
+        <!-- Product Section: Cybersecurity Shield Style (NeuroGuard) -->
+        <section id="neuroguard" class="product-section">
+            <div class="container product-grid">
+
+                <div class="product-visual fade-in-up">
+                    <div class="hologram-pedestal">
+                        <img src="assets/neuroguard.png" alt="NeuroGuard Glowing Gold Shield"
+                            class="hologram-img pulse-glow" id="shield-image">
+                        <div class="pedestal-base"></div>
+                    </div>
+                </div>
+
+                <div class="product-text fade-in-up delay-1">
+                    <div class="badge">PROPRIETARY TECH</div>
+                    <h2 class="section-title">PROJECT: <span class="gold-accent">NEUROGUARD</span></h2>
+                    <h3 class="subsection-title">Effortless Protection, Elevated.</h3>
+                    <p>A digital shield made of glowing gold light, hovering effortlessly above your infrastructure. We
+                        lift
+                        the burden of security off your shoulders.</p>
+                    <p class="highlight-text">Notice how the keys lift off the deck? That's the upward anti-gravity
+                        force of
+                        Vyntrix, pulling threats away before they execute.</p>
+
+                    <div class="stat-container">
+                        <div class="stat-box glass-card card-simple hover-lift">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Threat Deflection</span>
+                        </div>
+                        <div class="stat-box glass-card card-simple hover-lift delay-1">
+                            <span class="stat-number">0.0ms</span>
+                            <span class="stat-label">Weight/Latency</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Scanner Section: AI Vulnerability Analysis -->
+        <section id="scanner" class="scanner-section">
+            <div class="container">
+                <div class="scanner-header text-center fade-in-up">
+                    <h2 class="section-title">VULNERABILITY <span class="cyan-accent">SCANNER</span></h2>
+                    <p class="subtitle page-subtitle">Enter your website URL to instantly uncover security weaknesses
+                        with
+                        our AI engine.</p>
+                </div>
+
+                <div class="scanner-container glass-card card-simple fade-in-up delay-1">
+
+                    <!-- State 1: Input -->
+                    <div id="scanner-input-state" class="scanner-state active">
+                        <form id="scan-form" class="scan-form">
+                            <div class="input-group input-simple">
+                                <input type="text" id="target-url" placeholder="Enter text or URL to scan..." required
+                                    autocomplete="off" class="input-large">
+                            </div>
+                            <button type="submit" class="btn-glow btn-pulse scan-btn btn-large"
+                                aria-label="Start Text/URL Scan">
+                                <span class="btn-text">Analyze Text / URL</span>
+                                <div class="btn-loader"></div>
+                            </button>
+                        </form>
+                        <p class="form-hint">A safe, deep-learning analysis of unstructured text or public URLs.</p>
+                    </div>
+
+                    <!-- State 2: Scanning Animation -->
+                    <div id="scanner-loading-state" class="scanner-state hidden">
+                        <div class="loading-simple text-center">
+                            <div class="spinner-large"></div>
+                            <h3 class="mt-4 cyan-accent">AI is analyzing your website...</h3>
+                            <p id="loading-status-text">Checking surface topology</p>
+                        </div>
+                    </div>
+
+                    <!-- State 3: Results -->
+                    <div id="scanner-results-state" class="scanner-state hidden">
+                        <div class="results-header simple-header">
+                            <h3>Results for: <span id="result-url" class="cyan-accent"></span></h3>
+                            <div class="threat-level high">Risk Level: HIGH</div>
+                        </div>
+
+                        <div class="score-widget fade-in-up">
+                            <div class="score-circle score-critical">
+                                <span id="security-score">21</span>
+                            </div>
+                            <p class="mt-4" style="color: var(--text-secondary);">Security Score (Out of 100)</p>
+
+                            <!-- NEW AI PREDICTION UI -->
+                            <div class="ai-prediction-card" style="margin-top: 2rem;">
+                                <div class="prediction-header">
+                                    <span class="prediction-title">AI Engine Classification</span>
+                                    <span id="scan-badge" class="prediction-badge badge-infected">HIGH RISK</span>
+                                </div>
+                                
+                                <div class="prediction-metric">
+                                    <div class="metric-label">
+                                        <span>Model Confidence</span>
+                                        <span id="scan-confidence-val" class="metric-value">98.5%</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div id="scan-confidence-bar" class="progress-bar-fill fill-glow-cyan" style="width: 98.5%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="prediction-metric">
+                                    <div class="metric-label">
+                                        <span>Primary Threat Probability</span>
+                                        <span id="scan-threat-val" class="metric-value high">87%</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div id="scan-threat-bar" class="progress-bar-fill fill-glow-red" style="width: 87%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="ai-data-insight" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">
+                                        <strong class="cyan-accent">Insight:</strong> <span id="scan-insight-text">Model detected structural similarities to known phishing topologies and unencrypted data transmission pathways.</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- END AI PREDICTION UI -->
+                        </div>
+
+                        <div class="results-grid simple-grid mt-4">
+                            <!-- Vulnerability List -->
+                            <div class="vuln-list">
+                                <h4>Found Issues</h4>
+
+                                <div class="vuln-card critical">
+                                    <div class="vuln-badge">CRITICAL</div>
+                                    <h5>Database Vulnerability (SQLi)</h5>
+                                    <p>Hackers could access your customer data via forms.</p>
+                                </div>
+
+                                <div class="vuln-card high">
+                                    <div class="vuln-badge">HIGH</div>
+                                    <h5>Scripting Weakness (XSS)</h5>
+                                    <p>Attackers could manipulate what users see on your site.</p>
+                                </div>
+                            </div>
+
+                            <!-- AI Recommendations -->
+                            <div class="ai-remediation glass-card">
+                                <div class="ai-header">
+                                    <div class="ai-icon glow-blue"></div>
+                                    <h4>How to Secure Your Site</h4>
+                                </div>
+                                <ul class="remediation-steps simple-steps">
+                                    <li>
+                                        <strong>1. Protect Your Database</strong>
+                                        <p>Ask your developer to use "Prepared Statements" for all forms to stop data
+                                            leaks.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <strong>2. Clean User Inputs</strong>
+                                        <p>Ensure any text typed into your site is cleaned before being displayed to
+                                            others.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <strong>3. Quick Fix: NeuroGuard</strong>
+                                        <p>Deploy NeuroGuard to instantly block these attacks without touching code.</p>
+                                    </li>
+                                </ul>
+                                <button class="btn-primary mt-4 w-100 btn-large" id="reset-scan-btn">Scan Another
+                                    Site</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="brand">
+                <span class="v-mark">V</span>YNTRIX
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

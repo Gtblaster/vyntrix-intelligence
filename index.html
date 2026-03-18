@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyntrix Intelligence - Anti-Gravity Deep Learning</title>
+    <meta name="description"
+        content="Vyntrix Intelligence: Defying the physics of cybersecurity with advanced deep learning models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+    <main>
+
+        <!-- Navigation -->
+        <nav id="navbar" class="glass-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="v-mark">V</span>YNTRIX <span class="accent">INTELLIGENCE</span>
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active-link">Home</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="lab.html">R&D Lab</a></li>
+                <li><a href="contact.html" class="btn-glow">Access Engine</a></li>
+            </ul>
+        </nav>
+
+        <!-- 1. Hero Section: Abstract Science Style -->
+        <section id="home" class="hero-section">
+            <div class="parallax-bg" id="hero-bg" style="background-image: url('assets/hero_bg.png');"></div>
+            <div class="hero-content">
+                <h1 class="reveal-text">DEFY THE <span class="gradient-text">GRAVITY</span> <br>OF COMPLEXITY</h1>
+                <p class="subtitle fade-in-up delay-1">Effortless Security For Everyone.</p>
+                <p class="description fade-in-up delay-2">Vyntrix Intelligence lifts the burden of cybersecurity,
+                    creating
+                    an effortless ecosystem for your business. Complex neural networks made simple.</p>
+                <div class="cta-group fade-in-up delay-3">
+                    <a href="solutions.html" class="btn-primary">View Solutions</a>
+                    <a href="lab.html" class="btn-secondary">Explore the Lab</a>
+                </div>
+            </div>
+
+            <!-- Floating Elements Overlay -->
+            <div class="floating-droplets">
+                <div class="droplet d1"></div>
+                <div class="droplet d2"></div>
+                <div class="droplet d3"></div>
+            </div>
+        </section>
+
+        <!-- Steganography Scanner Section -->
+        <section class="page-top page-padding" style="min-height: auto; padding-bottom: 6rem;" id="stego-scanner-section">
+            <div class="container text-center max-w-600 fade-in-up">
+                <h2 class="section-title">STEGANOGRAPHY <span class="cyan-accent">SCANNER</span></h2>
+                <p class="subtitle page-subtitle">Detect hidden data in image files.</p>
+            </div>
+
+            <div class="container text-center fade-in-up delay-1" style="margin-top: 2rem;">
+                <div class="glass-card card-simple" style="max-width: 500px; margin: 0 auto; padding: 2rem;">
+                    <input type="file" id="stego-upload" accept="image/*" style="display: none;">
+                    <label for="stego-upload" class="btn-primary" style="cursor: pointer; display: inline-block; margin-bottom: 1rem;">
+                        Select Image
+                    </label>
+                    <div id="stego-file-name" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">No file selected</div>
+                    <button id="stego-scan-btn" class="btn-glow" style="display: none; margin: 0 auto;">Scan Image</button>
+                    
+                    <div id="stego-result-container" style="display: none;" class="fade-in-up">
+                        <div class="ai-prediction-card">
+                            <div class="prediction-header">
+                                <span class="prediction-title">AI Vision Analysis</span>
+                                <span id="stego-badge" class="prediction-badge"></span>
+                            </div>
+                            
+                            <div class="prediction-metric">
+                                <div class="metric-label">
+                                    <span>Model Confidence</span>
+                                    <span id="stego-confidence-val" class="metric-value">--%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div id="stego-confidence-bar" class="progress-bar-fill fill-glow-cyan"></div>
+                                </div>
+                            </div>
+
+                            <div class="prediction-metric">
+                                <div class="metric-label">
+                                    <span>Hidden Payload Detection Prob.</span>
+                                    <span id="stego-payload-val" class="metric-value">--%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div id="stego-payload-bar" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                            
+                            <p id="stego-summary-text" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; margin-bottom: 0;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="brand">
+                <span class="v-mark">V</span>YNTRIX
+                <p class="footer-tagline">Advanced Intelligence. Zero Gravity.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Protocol</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">System Status</a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Vyntrix Intelligence. All systems nominal.
+        </div>
+    </footer>
+
+    <script src="script.js?v=2"></script>
+</body>
+
+</html>
