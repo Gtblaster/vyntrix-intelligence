@@ -9,7 +9,7 @@ cd ..
 
 REM Start Frontend
 echo Starting Frontend development server on port 3000...
-start "Vyntrix Frontend" cmd /k "python -m http.server 3000"
+start "Vyntrix Frontend" cmd /k ".\backend\venv\Scripts\python.exe -m http.server 3000"
 
 echo Application started in separate windows!
 echo Backend API available at: http://localhost:8000

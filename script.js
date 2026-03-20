@@ -577,4 +577,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 10. Contact Form Submission Logic
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Transmitting...";
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/contact/`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        message: document.getElementById('message').value
+                    })
+                });
+                const result = await response.json();
+                if (response.ok && result.success) {
+                    alert('Transmission Successful! We will review your details.');
+                    contactForm.reset();
+                } else {
+                    alert('Error: ' + (result.detail || result.message || 'Unknown error'));
+                }
+            } catch (err) {
+                alert('Connection Failed. Please ensure the backend is running.');
+            } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
 });

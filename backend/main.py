@@ -60,3 +60,33 @@ async def scan_text(payload: TextInput):
         raise HTTPException(status_code=500, detail=f"NLP Inference Error: {prediction_result.get('error')}")
         
     return prediction_result
+
+import json
+import datetime
+import os
+
+DB_PATH = "contacts.db"
+
+class ContactInput(BaseModel):
+    name: str
+    email: str
+    message: str
+
+@app.post("/contact/")
+async def submit_contact(payload: ContactInput):
+    """
+    Receives contact form submissions natively from the frontend.
+    """
+    try:
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Create a clean readable line format
+        entry = f"[{timestamp}] Name: {payload.name} | Email: {payload.email} | Message: {payload.message}"
+        
+        # Append the new data one-by-one line to the file
+        with open(DB_PATH, "a", encoding="utf-8") as f:
+            f.write(entry + "\n")
+            
+        return {"success": True, "message": "Contact saved successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
