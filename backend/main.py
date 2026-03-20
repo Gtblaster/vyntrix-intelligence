@@ -7,7 +7,7 @@ app = FastAPI(title="Vyntrix Intelligence AI Engine")
 # Add CORS middleware to allow the frontend to communicate with this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production this should be restricted to the frontend origin (e.g., "http://127.0.0.1:8000")
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -23,7 +23,7 @@ async def scan_image(file: UploadFile = File(...)):
     Receives an uploaded image, processes it through the PyTorch model, and returns the prediction.
     """
     # Quick check for supported file types
-    if not file.content_type.startswith("image/"):
+    if file.content_type and not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File provided is not an image.")
     
     # Read the file bytes
@@ -33,7 +33,10 @@ async def scan_image(file: UploadFile = File(...)):
     prediction_result = predict_image(image_bytes)
     
     if not prediction_result.get("success"):
-        raise HTTPException(status_code=500, detail=f"Model Inference Error: {prediction_result.get('error')}")
+        error_msg = prediction_result.get('error', 'Unknown Error')
+        if "Unsupported image format" in error_msg or "Invalid image file" in error_msg:
+            raise HTTPException(status_code=415, detail=error_msg)
+        raise HTTPException(status_code=500, detail=f"Model Inference Error: {error_msg}")
         
     return prediction_result
 

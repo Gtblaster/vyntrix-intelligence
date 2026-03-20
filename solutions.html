@@ -38,9 +38,40 @@
             <div class="container product-grid">
 
                 <div class="product-visual fade-in-up">
-                    <div class="hologram-pedestal">
+                    <style>
+                        .deflection-beam {
+                            position: absolute;
+                            width: 3px;
+                            height: 40px;
+                            background: linear-gradient(to bottom, #ff3333, transparent);
+                            border-radius: 4px;
+                            opacity: 0;
+                            z-index: 3;
+                            box-shadow: 0 0 10px #ff3333;
+                        }
+                        .beam-left { left: 30%; top: -20%; animation: beam-strike 3s infinite 0.5s; transform: rotate(-30deg); }
+                        .beam-right { right: 30%; top: -10%; animation: beam-strike-right 3s infinite 1.5s; transform: rotate(45deg); }
+                        
+                        @keyframes beam-strike {
+                            0% { opacity: 0; transform: translateY(-80px) rotate(-30deg); }
+                            15% { opacity: 1; transform: translateY(60px) rotate(-30deg); }
+                            20% { opacity: 0; transform: translateY(70px) translateX(-60px) rotate(-70deg); } /* Bounce off shield */
+                            100% { opacity: 0; }
+                        }
+                        @keyframes beam-strike-right {
+                            0% { opacity: 0; transform: translateY(-80px) rotate(45deg); }
+                            15% { opacity: 1; transform: translateY(60px) rotate(45deg); }
+                            20% { opacity: 0; transform: translateY(70px) translateX(60px) rotate(80deg); }
+                            100% { opacity: 0; }
+                        }
+                    </style>
+                    <div class="hologram-pedestal" style="position: relative;">
+                        <!-- Animated Red Threat Beams Deflecting off the Shield -->
+                        <div class="deflection-beam beam-left"></div>
+                        <div class="deflection-beam beam-right"></div>
+                        
                         <img src="assets/neuroguard.png" alt="NeuroGuard Glowing Gold Shield"
-                            class="hologram-img pulse-glow" id="shield-image">
+                            class="hologram-img pulse-glow" id="shield-image" style="position: relative; z-index: 2;">
                         <div class="pedestal-base"></div>
                     </div>
                 </div>
@@ -87,16 +118,16 @@
                     <div id="scanner-input-state" class="scanner-state active">
                         <form id="scan-form" class="scan-form">
                             <div class="input-group input-simple">
-                                <input type="text" id="target-url" placeholder="Enter text or URL to scan..." required
+                                <input type="text" id="target-url" placeholder="Enter website URL to scan..." required
                                     autocomplete="off" class="input-large">
                             </div>
                             <button type="submit" class="btn-glow btn-pulse scan-btn btn-large"
-                                aria-label="Start Text/URL Scan">
-                                <span class="btn-text">Analyze Text / URL</span>
+                                aria-label="Start URL Scan">
+                                <span class="btn-text">Analyze URL</span>
                                 <div class="btn-loader"></div>
                             </button>
                         </form>
-                        <p class="form-hint">A safe, deep-learning analysis of unstructured text or public URLs.</p>
+                        <p class="form-hint">A safe, deep-learning analysis of public URLs.</p>
                     </div>
 
                     <!-- State 2: Scanning Animation -->
@@ -112,14 +143,17 @@
                     <div id="scanner-results-state" class="scanner-state hidden">
                         <div class="results-header simple-header">
                             <h3>Results for: <span id="result-url" class="cyan-accent"></span></h3>
-                            <div class="threat-level high">Risk Level: HIGH</div>
+                            <div id="top-risk-level" class="threat-level high">Risk Level: HIGH</div>
                         </div>
 
                         <div class="score-widget fade-in-up">
                             <div class="score-circle score-critical">
-                                <span id="security-score">21</span>
+                                <span id="security-score">21</span><span style="font-size: 1.5rem">%</span>
                             </div>
-                            <p class="mt-4" style="color: var(--text-secondary);">Security Score (Out of 100)</p>
+                            <p class="mt-4" style="color: var(--text-secondary);">Personal Data Security</p>
+                            <p class="score-context" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; max-width: 80%; margin-inline: auto;">
+                                A score below 50 indicates severe, exploitable structural vulnerabilities that require <strong>immediate patching</strong> to protect user data.
+                            </p>
 
                             <!-- NEW AI PREDICTION UI -->
                             <div class="ai-prediction-card" style="margin-top: 2rem;">
@@ -159,7 +193,7 @@
 
                         <div class="results-grid simple-grid mt-4">
                             <!-- Vulnerability List -->
-                            <div class="vuln-list">
+                            <div class="vuln-list" id="vuln-list-container">
                                 <h4>Found Issues</h4>
 
                                 <div class="vuln-card critical">
@@ -181,7 +215,7 @@
                                     <div class="ai-icon glow-blue"></div>
                                     <h4>How to Secure Your Site</h4>
                                 </div>
-                                <ul class="remediation-steps simple-steps">
+                                <ul class="remediation-steps simple-steps" id="remediation-list">
                                     <li>
                                         <strong>1. Protect Your Database</strong>
                                         <p>Ask your developer to use "Prepared Statements" for all forms to stop data
@@ -199,8 +233,10 @@
                                         <p>Deploy NeuroGuard to instantly block these attacks without touching code.</p>
                                     </li>
                                 </ul>
-                                <button class="btn-primary mt-4 w-100 btn-large" id="reset-scan-btn">Scan Another
-                                    Site</button>
+                                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                                    <button class="btn-glow w-100 btn-large" onclick="window.location.href='contact.html'" style="background: rgba(255, 215, 0, 0.05); border-color: var(--gold); color: white;">Secure My Site Now</button>
+                                    <button class="btn-primary w-100 btn-large" id="reset-scan-btn">Scan Another Site</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -224,7 +260,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=5"></script>
 </body>
 
 </html>
