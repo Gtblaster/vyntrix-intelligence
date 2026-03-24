@@ -219,7 +219,7 @@ a {
 
 /* 1. Hero Section */
 .hero-section {
-    position: relative;
+                               position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -251,15 +251,14 @@ a {
 }
 
 .hero-content {
-    max-width: 650px;
-    z-index: 1;
+                        max-width: 650px;
+                        z-index: 1;
+}
 }
 
 .reveal-text {
-    font-size: 5rem;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+                                  font-size: 5rem;
+                                   line-height: 1.1;
 }
 
 .subtitle {
@@ -1472,7 +1471,7 @@ p {
 /* Responsive basics */
 @media (max-width: 992px) {
     .hero-section {
-        padding: 0 4rem;
+                                        padding: 120px 2rem 0;
     }
 
     .reveal-text {
@@ -1503,7 +1502,7 @@ p {
     }
 
     .hero-section {
-        padding: 0 2rem;
+                                padding: 120px 2rem 0;
     }
 
     .cta-group {
