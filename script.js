@@ -412,31 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 8. Custom Glowing Cursor Effect
-    const cursorGlow = document.createElement('div');
-    cursorGlow.classList.add('cursor-glow');
-    document.body.appendChild(cursorGlow);
-
-    window.addEventListener('mousemove', (e) => {
-        cursorGlow.style.left = e.clientX + 'px';
-        cursorGlow.style.top = e.clientY + 'px';
-    });
-
-    // Enlarge cursor firmly on interactive elements
-    const interactables = document.querySelectorAll('a, button, input');
-    interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursorGlow.style.width = '100px';
-            cursorGlow.style.height = '100px';
-            cursorGlow.style.background = 'radial-gradient(circle, rgba(255, 215, 0, 0.15) 0%, transparent 70%)'; // Gold hover
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorGlow.style.width = '300px';
-            cursorGlow.style.height = '300px';
-            cursorGlow.style.background = 'radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%)'; // Cyan default
-        });
-    });
-
     // 9. Steganography Scanner Logic
     const stegoUpload = document.getElementById('stego-upload');
     const stegoFileName = document.getElementById('stego-file-name');

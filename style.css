@@ -42,6 +42,11 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1,
@@ -219,7 +224,7 @@ a {
 
 /* 1. Hero Section */
 .hero-section {
-                               position: relative;
+    position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -251,14 +256,15 @@ a {
 }
 
 .hero-content {
-                        max-width: 650px;
-                        z-index: 1;
-}
+    max-width: 650px;
+    z-index: 1;
 }
 
 .reveal-text {
-                                  font-size: 5rem;
-                                   line-height: 1.1;
+    font-size: 5rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 .subtitle {
@@ -1125,9 +1131,13 @@ p {
 
 
 /* Footer */
+footer,
 .footer {
     background: var(--bg-darker);
-    padding: 4rem 0 2rem;
+    margin: 0;
+    padding: 0;
+    margin-top: auto;
+    /* pushes footer to bottom without extra gap */
     border-top: 1px solid var(--purple-light);
 }
 
@@ -1299,7 +1309,8 @@ p {
     height: 100%;
     border-radius: 3px;
     transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-    width: 0%; /* Initial state */
+    width: 0%;
+    /* Initial state */
 }
 
 .fill-glow-cyan {
@@ -1471,7 +1482,7 @@ p {
 /* Responsive basics */
 @media (max-width: 992px) {
     .hero-section {
-                                        padding: 120px 2rem 0;
+        padding: 120px 2rem 0;
     }
 
     .reveal-text {
@@ -1502,7 +1513,7 @@ p {
     }
 
     .hero-section {
-                                padding: 120px 2rem 0;
+        padding: 120px 2rem 0;
     }
 
     .cta-group {
@@ -1512,4 +1523,17 @@ p {
     .stat-container {
         flex-direction: column;
     }
+}
+
+/* Fix for cursor glow element creating huge blank space */
+.cursor-glow {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 100px;
+    height: 1px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
+    transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
 }

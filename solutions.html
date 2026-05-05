@@ -49,27 +49,69 @@
                             z-index: 3;
                             box-shadow: 0 0 10px #ff3333;
                         }
-                        .beam-left { left: 30%; top: -20%; animation: beam-strike 3s infinite 0.5s; transform: rotate(-30deg); }
-                        .beam-right { right: 30%; top: -10%; animation: beam-strike-right 3s infinite 1.5s; transform: rotate(45deg); }
-                        
-                        @keyframes beam-strike {
-                            0% { opacity: 0; transform: translateY(-80px) rotate(-30deg); }
-                            15% { opacity: 1; transform: translateY(60px) rotate(-30deg); }
-                            20% { opacity: 0; transform: translateY(70px) translateX(-60px) rotate(-70deg); } /* Bounce off shield */
-                            100% { opacity: 0; }
+
+                        .beam-left {
+                            left: 30%;
+                            top: -20%;
+                            animation: beam-strike 3s infinite 0.5s;
+                            transform: rotate(-30deg);
                         }
+
+                        .beam-right {
+                            right: 30%;
+                            top: -10%;
+                            animation: beam-strike-right 3s infinite 1.5s;
+                            transform: rotate(45deg);
+                        }
+
+                        @keyframes beam-strike {
+                            0% {
+                                opacity: 0;
+                                transform: translateY(-80px) rotate(-30deg);
+                            }
+
+                            15% {
+                                opacity: 1;
+                                transform: translateY(60px) rotate(-30deg);
+                            }
+
+                            20% {
+                                opacity: 0;
+                                transform: translateY(70px) translateX(-60px) rotate(-70deg);
+                            }
+
+                            /* Bounce off shield */
+                            100% {
+                                opacity: 0;
+                            }
+                        }
+
                         @keyframes beam-strike-right {
-                            0% { opacity: 0; transform: translateY(-80px) rotate(45deg); }
-                            15% { opacity: 1; transform: translateY(60px) rotate(45deg); }
-                            20% { opacity: 0; transform: translateY(70px) translateX(60px) rotate(80deg); }
-                            100% { opacity: 0; }
+                            0% {
+                                opacity: 0;
+                                transform: translateY(-80px) rotate(45deg);
+                            }
+
+                            15% {
+                                opacity: 1;
+                                transform: translateY(60px) rotate(45deg);
+                            }
+
+                            20% {
+                                opacity: 0;
+                                transform: translateY(70px) translateX(60px) rotate(80deg);
+                            }
+
+                            100% {
+                                opacity: 0;
+                            }
                         }
                     </style>
                     <div class="hologram-pedestal" style="position: relative;">
                         <!-- Animated Red Threat Beams Deflecting off the Shield -->
                         <div class="deflection-beam beam-left"></div>
                         <div class="deflection-beam beam-right"></div>
-                        
+
                         <img src="assets/neuroguard.png" alt="NeuroGuard Glowing Gold Shield"
                             class="hologram-img pulse-glow" id="shield-image" style="position: relative; z-index: 2;">
                         <div class="pedestal-base"></div>
@@ -151,8 +193,10 @@
                                 <span id="security-score">21</span><span style="font-size: 1.5rem">%</span>
                             </div>
                             <p class="mt-4" style="color: var(--text-secondary);">Personal Data Security</p>
-                            <p class="score-context" style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; max-width: 80%; margin-inline: auto;">
-                                A score below 50 indicates severe, exploitable structural vulnerabilities that require <strong>immediate patching</strong> to protect user data.
+                            <p class="score-context"
+                                style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; max-width: 80%; margin-inline: auto;">
+                                A score below 50 indicates severe, exploitable structural vulnerabilities that require
+                                <strong>immediate patching</strong> to protect user data.
                             </p>
 
                             <!-- NEW AI PREDICTION UI -->
@@ -161,14 +205,15 @@
                                     <span class="prediction-title">AI Engine Classification</span>
                                     <span id="scan-badge" class="prediction-badge badge-infected">HIGH RISK</span>
                                 </div>
-                                
+
                                 <div class="prediction-metric">
                                     <div class="metric-label">
                                         <span>Model Confidence</span>
                                         <span id="scan-confidence-val" class="metric-value">98.5%</span>
                                     </div>
                                     <div class="progress-bar-bg">
-                                        <div id="scan-confidence-bar" class="progress-bar-fill fill-glow-cyan" style="width: 98.5%"></div>
+                                        <div id="scan-confidence-bar" class="progress-bar-fill fill-glow-cyan"
+                                            style="width: 98.5%"></div>
                                     </div>
                                 </div>
 
@@ -178,13 +223,17 @@
                                         <span id="scan-threat-val" class="metric-value high">87%</span>
                                     </div>
                                     <div class="progress-bar-bg">
-                                        <div id="scan-threat-bar" class="progress-bar-fill fill-glow-red" style="width: 87%"></div>
+                                        <div id="scan-threat-bar" class="progress-bar-fill fill-glow-red"
+                                            style="width: 87%"></div>
                                     </div>
                                 </div>
 
-                                <div class="ai-data-insight" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
+                                <div class="ai-data-insight"
+                                    style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
                                     <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0;">
-                                        <strong class="cyan-accent">Insight:</strong> <span id="scan-insight-text">Model detected structural similarities to known phishing topologies and unencrypted data transmission pathways.</span>
+                                        <strong class="cyan-accent">Insight:</strong> <span id="scan-insight-text">Model
+                                            detected structural similarities to known phishing topologies and
+                                            unencrypted data transmission pathways.</span>
                                     </p>
                                 </div>
                             </div>
@@ -234,8 +283,12 @@
                                     </li>
                                 </ul>
                                 <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                                    <button class="btn-glow w-100 btn-large" onclick="window.location.href='contact.html'" style="background: rgba(255, 215, 0, 0.05); border-color: var(--gold); color: white;">Secure My Site Now</button>
-                                    <button class="btn-primary w-100 btn-large" id="reset-scan-btn">Scan Another Site</button>
+                                    <button class="btn-glow w-100 btn-large"
+                                        onclick="window.location.href='contact.html'"
+                                        style="background: rgba(255, 215, 0, 0.05); border-color: var(--gold); color: white;">Secure
+                                        My Site Now</button>
+                                    <button class="btn-primary w-100 btn-large" id="reset-scan-btn">Scan Another
+                                        Site</button>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +304,7 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="brand">
-                <span class="v-mark">V</span>YNTRIX
+                <span class="v-mark">V</span>VYNTRIX INTELLIGENCE
             </div>
             <div class="footer-links">
                 <a href="#">Privacy</a>

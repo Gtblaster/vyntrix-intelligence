@@ -57,7 +57,8 @@
         </section>
 
         <!-- Steganography Scanner Section -->
-        <section class="page-top page-padding" style="min-height: auto; padding-bottom: 6rem;" id="stego-scanner-section">
+        <section class="page-top page-padding" style="min-height: auto; padding-bottom: 6rem;"
+            id="stego-scanner-section">
             <div class="container text-center max-w-600 fade-in-up">
                 <h2 class="section-title">STEGANOGRAPHY <span class="cyan-accent">SCANNER</span></h2>
                 <p class="subtitle page-subtitle">Detect hidden data in image files.</p>
@@ -66,25 +67,32 @@
             <div class="container text-center fade-in-up delay-1" style="margin-top: 2rem;">
                 <div class="glass-card card-simple" style="max-width: 500px; margin: 0 auto; padding: 2rem;">
                     <input type="file" id="stego-upload" accept="image/*" style="display: none;">
-                    <label for="stego-upload" class="btn-primary" style="cursor: pointer; display: inline-block; margin-bottom: 1rem;">
+                    <label for="stego-upload" class="btn-primary"
+                        style="cursor: pointer; display: inline-block; margin-bottom: 1rem;">
                         Select Image
                     </label>
-                    <div id="stego-file-name" style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">No file selected</div>
-                    
-                    <div id="stego-preview-container" style="display: none; position: relative; margin: 1rem auto; max-width: 100%; text-align: center;">
-                        <img id="stego-original-img" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); display: block; margin: 0 auto;" />
-                        <img id="stego-overlay-img" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); max-width: 100%; max-height: 100%; display: none; border-radius: 8px; pointer-events: none;" />
+                    <div id="stego-file-name"
+                        style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 0.9rem;">No file selected
                     </div>
 
-                    <button id="stego-scan-btn" class="btn-glow" style="display: none; margin: 0 auto;">Scan Image</button>
-                    
+                    <div id="stego-preview-container"
+                        style="display: none; position: relative; margin: 1rem auto; max-width: 100%; text-align: center;">
+                        <img id="stego-original-img"
+                            style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); display: block; margin: 0 auto;" />
+                        <img id="stego-overlay-img"
+                            style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); max-width: 100%; max-height: 100%; display: none; border-radius: 8px; pointer-events: none;" />
+                    </div>
+
+                    <button id="stego-scan-btn" class="btn-glow" style="display: none; margin: 0 auto;">Scan
+                        Image</button>
+
                     <div id="stego-result-container" style="display: none;" class="fade-in-up">
                         <div class="ai-prediction-card">
                             <div class="prediction-header">
                                 <span class="prediction-title">AI Vision Analysis</span>
                                 <span id="stego-badge" class="prediction-badge"></span>
                             </div>
-                            
+
                             <div class="prediction-metric">
                                 <div class="metric-label">
                                     <span>Model Confidence</span>
@@ -104,12 +112,19 @@
                                     <div id="stego-payload-bar" class="progress-bar-fill"></div>
                                 </div>
                             </div>
-                            
-                            <p id="stego-summary-text" style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; margin-bottom: 0;"></p>
-                            
-                            <div id="stego-payload-container" style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); border-radius: 5px; text-align: left;">
-                                <strong style="color: var(--cyan); font-size: 0.85rem; text-transform: uppercase;">Extracted Payload / Data:</strong>
-                                <p id="stego-extracted-text" style="margin-top: 0.5rem; font-size: 0.9rem; word-break: break-all; font-family: monospace; color: #fff;"></p>
+
+                            <p id="stego-summary-text"
+                                style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 1rem; margin-bottom: 0;">
+                            </p>
+
+                            <div id="stego-payload-container"
+                                style="display: none; margin-top: 1rem; padding: 1rem; background: rgba(0,0,0,0.5); border: 1px solid var(--border-color); border-radius: 5px; text-align: left;">
+                                <strong
+                                    style="color: var(--cyan); font-size: 0.85rem; text-transform: uppercase;">Extracted
+                                    Payload / Data:</strong>
+                                <p id="stego-extracted-text"
+                                    style="margin-top: 0.5rem; font-size: 0.9rem; word-break: break-all; font-family: monospace; color: #fff;">
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -123,17 +138,12 @@
     <footer class="footer">
         <div class="container footer-content">
             <div class="brand">
-                <span class="v-mark">V</span>YNTRIX
-                <p class="footer-tagline">Advanced Intelligence. Zero Gravity.</p>
+                <span class="v-mark"></span>VYNTRIX INTELLIGENCE
             </div>
             <div class="footer-links">
-                <a href="#">Privacy Protocol</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">System Status</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
             </div>
-        </div>
-        <div class="copyright">
-            &copy; 2026 Vyntrix Intelligence. All systems nominal.
         </div>
     </footer>
 
