@@ -1,0 +1,35 @@
+# ============================================================
+# Vyntrix Intelligence — Docker Compose
+# ============================================================
+# Usage:
+#   docker-compose up --build        (build and start)
+#   docker-compose up -d --build     (detached mode)
+#   docker-compose down              (stop and remove)
+#   docker-compose logs -f           (follow logs)
+# ============================================================
+
+services:
+  vyntrix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vyntrix-intelligence
+    ports:
+      - "3000:3000"   # Frontend (Nginx)
+      - "8000:8000"   # Backend API (FastAPI)
+    volumes:
+      - vyntrix-data:/app/data     # Persist SQLite database
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  vyntrix-data:
+    driver: local

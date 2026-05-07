@@ -1,0 +1,45 @@
+# Version Control
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.eggs
+*.egg
+.pytest_cache
+.tox
+.venv
+venv
+backend/venv
+backend/__pycache__
+
+# IDE / Editors
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Documentation / Dev
+*.md
+*.bat
+*.txt
+!backend/requirements.txt
+test_*.py
+debug_*.py
+error_log.txt
+
+# Database files (recreated at runtime)
+*.db

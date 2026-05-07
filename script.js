@@ -5,7 +5,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    const API_BASE_URL = 'http://127.0.0.1:8000';    // 1. Navigation Scrolled State
+    // Auto-detect API URL: works locally and in Docker
+    const API_BASE_URL = window.location.port === '3000'
+        ? `${window.location.protocol}//${window.location.hostname}:8000`
+        : 'http://127.0.0.1:8000';
+
+    // 1. Navigation Scrolled State
     const navbar = document.getElementById('navbar');
 
     window.addEventListener('scroll', () => {
